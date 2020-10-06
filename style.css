@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: '', sans-serif;
+  background-color: gray;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: blue;
+  position: center;
+}
+
+.hidden {
+  display: none;
+}
