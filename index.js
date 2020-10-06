@@ -1,7 +1,7 @@
 "use strict";
 
 function getDogImage(breedType) {
-    console.log(breedType);
+  console.log(breedType);
   fetch(`https://dog.ceo/api/breed/${breedType}/images/random`)
     .then((response) => response.json())
     .then((responseJson) => displayResults(responseJson))
@@ -11,16 +11,18 @@ function getDogImage(breedType) {
 function displayResults(responseJson) {
   console.log(responseJson);
   //replace the existing image with the new one
-    if (responseJson.status === "success") {
-  $(".results").append(
+  if (responseJson.status === "success") {
+    $(".image-results").replaceWith(
     `<img src="${responseJson.message}" class="image-results">`
   );
-  $(".results").removeClass('hidden');
-    }
-    else {
-        alert('No breed found, please try again');
-    }
-};
+  //display the results section
+    $(".results").removeClass("hidden");
+  }
+  
+  else {
+    alert("No breed found, please try again");
+  }
+}
 
 function watchForm() {
   $("form").submit((event) => {
@@ -29,7 +31,7 @@ function watchForm() {
     console.log(breedInput);
     getDogImage(breedInput);
   });
-};
+}
 
 $(function () {
   console.log("App loaded! Waiting for submit!");
