@@ -11,11 +11,11 @@ function getDogImage(breedType) {
 function displayResults(responseJson) {
   console.log(responseJson);
   //replace the existing image with the new one
-    if (responseJason.status === 200) {
+    if (responseJson.status === "success") {
   $(".results").append(
     `<img src="${responseJson.message}" class="image-results">`
   );
-  $(".image-results").removeClass('hidden');
+  $(".results").removeClass('hidden');
     }
     else {
         alert('No breed found, please try again');
